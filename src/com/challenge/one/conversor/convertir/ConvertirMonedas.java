@@ -4,7 +4,6 @@ import com.challenge.one.conversor.exception.ErrorConvertirException;
 import com.challenge.one.conversor.historial.HistorialDeConversion;
 import com.google.gson.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -29,7 +28,9 @@ public class ConvertirMonedas {
 
         try {
 
-            urlAPI = URI.create("https://v6.exchangerate-api.com/v6/6c77d940d4d03573aa19415d/pair/" + monedaConvertir + "/" + monedaDestino + "/" + cantidad);
+            String keyAPI = "6c77d940d4d03573aa19415d";
+
+            urlAPI = URI.create("https://v6.exchangerate-api.com/v6/"+ keyAPI +"/pair/" + monedaConvertir + "/" + monedaDestino + "/" + cantidad);
 
             request = HttpRequest.newBuilder()
                     .uri(urlAPI)
